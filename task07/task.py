@@ -7,11 +7,16 @@ class RomanNumerals:
     ]
     value_map_dict = {symbol: value for value, symbol in value_map_list}
 
-
-class DecimalToRoman:
+class BaseConverter:
     def __init__(self):
         self.roman_numeral = ''
         self.num = 0
+        self.decimal = 0
+        self.i = 0
+
+class DecimalToRoman(BaseConverter):
+    def __init__(self):
+        super().__init__()
 
     def convert(self, num):
         self.num = num
@@ -37,11 +42,9 @@ class DecimalToRoman:
     def decrease_num(self, value):
         self.num -= value
 
-
-class RomanToDecimal:
+class RomanToDecimal(BaseConverter):
     def __init__(self):
-        self.decimal = 0
-        self.i = 0
+        super().__init__()
 
     def convert(self, roman_number):
         self.decimal = 0
@@ -67,10 +70,9 @@ class RomanToDecimal:
         self.decimal += RomanNumerals.value_map_dict[roman_number[self.i:self.i + 2]]
         self.i += 2
 
-
 if __name__ == '__main__':
     decimal_to_roman_converter = DecimalToRoman()
-    print(decimal_to_roman_converter.convert(1987))
+    print(decimal_to_roman_converter.convert(1987))  # MCMLXXXVII
 
     roman_to_decimal_converter = RomanToDecimal()
-    print(roman_to_decimal_converter.convert('MCMLXXXVII'))
+    print(roman_to_decimal_converter.convert('MCMLXXXVII'))  # 1987
