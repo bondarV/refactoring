@@ -50,7 +50,7 @@ class Labrador(Dog):
         print(f"{self.name} каже: Гав-гав!")
 
     def fetch(self):
-        print(f"{self.name} приносить м'ячик.")
+        print(f"{self.name} {Dog.nature} приносить м'ячик.")
 
 
 class Puggy(Dog):
